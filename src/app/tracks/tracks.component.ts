@@ -77,7 +77,7 @@ export class TracksComponent implements OnInit, OnDestroy {
         this.trafficState.next(locationResponse ? "High" : "Light");
         traffic = locationResponse ? "High" : "Light";
         this.trackService.loadSpotifyTracks(this.accessToken, weather, traffic).then((trackData: Song[]) => {
-          this.playlist.next(trackData);
+          this.playlist.next(trackData.filter(item => item.id != -1));
           this.spinner.hide();
         })
       }, err => {
