@@ -1,0 +1,13 @@
+<div style="padding: 10px">
+    <div style="text-align: center;">
+            <span *ngIf="(playerService.currentSong | async)" style="display: block; margin-top: 5px;">{{(playerService.currentSong | async).title}}</span>
+            <img *ngIf="(playerService.currentSong | async)" style="margin-top: 5px; margin-bottom: 5px;" [src]="(playerService.currentSong | async).album.jackets[75]" class="responsive-image mat-elevation-z1" >
+
+    </div>
+
+    <div class="player-div" style="padding-top: 10px; padding-bottom: 10px;">
+    <fa-icon (click)="pauseTrack()" [icon]="faPause"></fa-icon>
+    <fa-icon (click)="playTrack()"  [icon]="faPlay"></fa-icon>
+    <fa-icon (click)="stopTrack()" [icon]="faStop"></fa-icon>
+    </div>
+</div>

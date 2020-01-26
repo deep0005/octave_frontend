@@ -1,0 +1,49 @@
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <h5>
+      <a routerLink="../../">{{routeParams.name}} - Albums </a> / Tracks
+    </h5>
+  </div>
+</div> -->
+<!-- <div class="row  mb-5 mt-4">
+  <div class="col-xs-2">
+    <img src="http://static.mytouchtunes.com/jackets/100x100/9/7/0/97067800.jpg" width="100%" class="responsive-image mat-elevation-z1" >
+  </div>
+  <div class="col-xs-10">
+    <h2>{{currentWeather | async}}</h2>
+    <div class="row">
+      <div class="col-xs-12 album-details">
+       {{trafficState | async}} </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-xs-12 album-details">
+        Temp
+      </div>
+    </div>
+  </div>
+</div> -->
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#333"
+size = "medium"
+color = "#fff"
+type = "line-scale-pulse-out"
+[fullScreen] = "true"
+>
+<p style="color: white" > Loading your playlist... <span *ngIf="(currentWeather | async)"> It's {{(currentWeather | async)}} outside</span> &nbsp; <fa-icon *ngIf="(currentWeather | async)" [icon]="getIcon()" style="float: right;"></fa-icon></p>
+</ngx-spinner>
+<!-- <mat-spinner *ngIf="(isLoading | async)"></mat-spinner> -->
+<table mat-table [dataSource]="playlist|async" class="mat-elevation-z8">
+  <ng-container matColumnDef="Number">
+    <th mat-header-cell *matHeaderCellDef style="width:60px"> # </th>
+    <td mat-cell *matCellDef="let element"> > </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="track-row" (click)="playTrack(row)"></tr>
+</table>

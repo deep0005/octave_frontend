@@ -1,0 +1,23 @@
+div.player-div{
+    margin: auto; 
+    width: fit-content;
+    background: #eee;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+div.player-div > fa-icon{
+    
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 25px;
+
+}
+
+div.player-div > fa-icon:hover{
+    
+    opacity: .7;
+    cursor: pointer;
+
+}
+
